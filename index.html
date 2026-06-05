@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Selection</title>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@latest/dist/email.min.js"></script>
+
+  <script>
+    (function () {
+      emailjs.init("gRApwllL35lh4rfDQ");
+    })();
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="booking-container">
+    <h2>Network Subscription Plan</h2>
+
+    <div class="form-group">
+      <label for="plan-type">Select Plan</label>
+      <select id="plan-type">
+        <option value="">Choose a plan</option>
+        <option value="Basic">Basic</option>
+        <option value="Standard">Standard</option>
+        <option value="Premium">Premium</option>
+      </select>
+
+      <label for="email">Enter your Email</label>
+      <input type="email" id="email" placeholder="ex.123abc@gmail.com" />
+    </div>
+
+    <div class="info-container">
+      <div class="info">
+        <h3>Basic ($5/month)</h3>
+        <ul>
+          <li>1 device</li>
+          <li>Standard Wi-Fi access</li>
+          <li>Limited customer support</li>
+          <li>Good for light use</li>
+        </ul>
+      </div>
+
+      <div class="info">
+        <h3>Standard ($12/month)</h3>
+        <ul>
+          <li>Up to 3 devices</li>
+          <li>Faster Wi-Fi</li>
+          <li>Priority customer support</li>
+          <li>Good for everyday use</li>
+        </ul>
+      </div>
+
+      <div class="info">
+        <h3>Premium ($20/month)</h3>
+        <ul>
+          <li>Up to 6 devices</li>
+          <li>Fastest Wi-Fi speed</li>
+          <li>24/7 support</li>
+          <li>Best for heavy use or families</li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <button class="btn-book" onclick="showBill()">Book Now</button>
+    </div>
+
+    <div id="overlay"></div>
+    <div id="bill-popup">
+      <h3>Payment Confirmation</h3>
+      <p id="bill-details"></p>
+      <button class="btn-confirm" onclick="makePayment()">Proceed to Pay</button>
+      <button class="btn-close" onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
